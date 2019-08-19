@@ -12,7 +12,6 @@ import org.encog.neural.pattern.FeedForwardPattern;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 /**
  * A lunar lander game where the neural network learns to land a space craft.  
  * The neural network learns the proper amount of thrust to land softly 
@@ -22,9 +21,9 @@ import org.slf4j.LoggerFactory;
  * have expected values.  For this it can use genetic algorithms or 
  * simulated annealing.
  */
-public class LunarLander
+public class CliLunarLander
 {
-	final static Logger logger = LoggerFactory.getLogger(LunarLander.class);
+	final static Logger logger = LoggerFactory.getLogger(CliLunarLander.class);
 	
 	public static BasicNetwork createNetwork()
 	{
@@ -44,15 +43,15 @@ public class LunarLander
 		BasicNetwork network = createNetwork();
 		
 		MLTrain train = new MLMethodGeneticAlgorithm(new MethodFactory()
-		{
-			@Override
-			public MLMethod factor()
 			{
-				final BasicNetwork result = createNetwork();
-				((MLResettable)result).reset();
-				return result;
-		}
-		},new PilotScore(),500);
+				@Override
+				public MLMethod factor()
+				{
+					final BasicNetwork result = createNetwork();
+					((MLResettable)result).reset();
+					return result;
+			}
+			},new PilotScoreCalculator(),500);
 		
 		int epoch = 1;
 
@@ -74,7 +73,7 @@ public class LunarLander
 	{
 		for(int i=0;i<1;i++)
 		{
-			LunarLander ll = new LunarLander();
+			CliLunarLander ll = new CliLunarLander();
 			ll.threads();
 			Encog.getInstance().shutdown();
 		}

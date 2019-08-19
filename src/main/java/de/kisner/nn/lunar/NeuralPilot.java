@@ -18,7 +18,7 @@ public class NeuralPilot {
 	{
         fuelStats = new NormalizedField(NormalizationAction.Normalize, "fuel", 200, 0, -0.9, 0.9);
         altitudeStats = new NormalizedField(NormalizationAction.Normalize, "altitude", 10000, 0, -0.9, 0.9);
-        velocityStats = new NormalizedField(NormalizationAction.Normalize, "velocity", LanderSimulator.TERMINAL_VELOCITY, -LanderSimulator.TERMINAL_VELOCITY, -0.9, 0.9);
+        velocityStats = new NormalizedField(NormalizationAction.Normalize, "velocity", PhysicsSimulator.TERMINAL_VELOCITY, -PhysicsSimulator.TERMINAL_VELOCITY, -0.9, 0.9);
 
 		this.track = track;
 		this.network = network;
@@ -26,7 +26,7 @@ public class NeuralPilot {
 	
 	public int scorePilot()
 	{
-		LanderSimulator sim = new LanderSimulator();
+		PhysicsSimulator sim = new PhysicsSimulator();
 		while(sim.flying())
 		{
 			MLData input = new BasicMLData(3);
@@ -41,15 +41,12 @@ public class NeuralPilot {
 			if( value > 0 )
 			{
 				thrust = true;
-				if( track )
-					System.out.println("THRUST");
+				if( track ){System.out.println("THRUST");}
 			}
-			else
-				thrust = false;
+			else {thrust = false;}
 			
 			sim.turn(thrust);
-			if( track )
-				System.out.println(sim.telemetry());
+			if( track ) {System.out.println(sim.telemetry());}
 		}
 		return(sim.score());
 	}

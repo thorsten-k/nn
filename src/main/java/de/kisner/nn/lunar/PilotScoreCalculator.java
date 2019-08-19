@@ -4,7 +4,7 @@ import org.encog.ml.CalculateScore;
 import org.encog.ml.MLMethod;
 import org.encog.neural.networks.BasicNetwork;
 
-public class PilotScore implements CalculateScore
+public class PilotScoreCalculator implements CalculateScore
 {
 	@Override public double calculateScore(MLMethod network)
 	{
