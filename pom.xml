@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>     
 	<groupId>de.kisner</groupId>
 	<artifactId>nn</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>Neural Networks</name>
 	<description>x</description>
