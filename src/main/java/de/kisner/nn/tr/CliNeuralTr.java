@@ -10,7 +10,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tipprunde.api.rest.PersonalRest;
-import org.tipprunde.api.rest.StatisticRest;
+import org.tipprunde.api.rest.HistoricalRest;
 import org.tipprunde.factory.txt.liga.TxtMatchFactory;
 import org.tipprunde.model.xml.liga.Match;
 import org.tipprunde.model.xml.liga.Matches;
@@ -26,7 +26,7 @@ public class CliNeuralTr
 {
 	final static Logger logger = LoggerFactory.getLogger(CliNeuralTr.class);
 
-	private StatisticRest restStatistic;
+	private HistoricalRest restStatistic;
 	private PersonalRest restPersonal;
 	
 	public CliNeuralTr(Configuration config)
@@ -34,7 +34,7 @@ public class CliNeuralTr
 		ResteasyClient client = new ResteasyClientBuilder().build();
 		client.register(new BasicAuthentication(config.getString("net.rest.tr.user"), config.getString("net.rest.tr.pwd")));
 		ResteasyWebTarget restTarget = client.target(config.getString("net.rest.tr.url"));
-		restStatistic = restTarget.proxy(StatisticRest.class);
+		restStatistic = restTarget.proxy(HistoricalRest.class);
 		restPersonal = restTarget.proxy(PersonalRest.class);
 	}
 	
