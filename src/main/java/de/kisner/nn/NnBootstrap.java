@@ -1,6 +1,8 @@
 package de.kisner.nn;
 
 import org.apache.commons.configuration.Configuration;
+import org.jeesl.factory.txt.system.io.ssi.TxtSsiCredentialFactory;
+import org.jeesl.model.json.system.io.ssi.SsiCrendentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,5 +46,17 @@ public class NnBootstrap
 		}
 		ConfigLoader.add(configFile);
 		return ConfigLoader.init();
+	}
+	
+	public static SsiCrendentials trCrendentials(Configuration config)
+	{
+		SsiCrendentials json = new SsiCrendentials();
+		json.setUrl(config.getString("net.rest.tr.url"));
+		json.setUser(config.getString("net.rest.tr.user"));
+		json.setPassword(config.getString("net.rest.tr.pwd"));
+		
+		logger.info(TxtSsiCredentialFactory.debug(json));
+		
+		return json;
 	}
 }

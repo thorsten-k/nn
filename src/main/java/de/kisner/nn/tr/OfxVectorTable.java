@@ -28,7 +28,7 @@ public class OfxVectorTable
 	final static Logger logger = LoggerFactory.getLogger(OfxVectorTable.class);
 
 	private final Table table;
-	private final List<String> vector;
+	private final List<String> vBalance;
 	
 	public OfxVectorTable(Round round)
 	{
@@ -49,7 +49,7 @@ public class OfxVectorTable
 		
 		table.setContent(content);
 		
-		vector = new ArrayList<>();
+		vBalance = new ArrayList<>();
 	}
 	
 	public void debug()
@@ -67,15 +67,21 @@ public class OfxVectorTable
 		BigDecimal bd = BigDecimal.valueOf(d);
 		bd = bd.setScale(2, RoundingMode.HALF_UP);
 		
-		vector.add(bd.toPlainString());
+		vBalance.add(bd.toPlainString());
+	}
+	
+	public void addData(String s)
+	{		
+		vBalance.add(s);
 	}
 	
 	public void addVector(String text)
 	{
 		table.getContent().getHead().getRow().get(0).getCell().add(XmlCellFactory.createParagraphCell(text));
-		for(int i=0;i<vector.size();i++)
+		for(int i=0;i<vBalance.size();i++)
 		{
-			table.getContent().getBody().get(0).getRow().get(i).getCell().add(XmlCellFactory.createParagraphCell(vector.get(i)));
+			table.getContent().getBody().get(0).getRow().get(i).getCell().add(XmlCellFactory.createParagraphCell(vBalance.get(i)));
 		}
+		vBalance.clear();
 	}
 }
