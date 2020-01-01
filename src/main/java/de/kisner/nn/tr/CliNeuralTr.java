@@ -12,11 +12,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tipprunde.api.rest.HistoricalRest;
 import org.tipprunde.api.rest.PersonalRest;
+import org.tipprunde.factory.txt.liga.TxtRoundFactory;
 import org.tipprunde.model.xml.liga.Match;
 import org.tipprunde.model.xml.liga.Matches;
 import org.tipprunde.model.xml.liga.Round;
 import org.tipprunde.processor.statistic.MatchBalanceProcessor;
-import org.tipprunde.server.factory.txt.liga.TxtRoundFactory;
 import org.tipprunde.util.filter.xml.XmlMatchesFilter;
 
 import de.kisner.nn.NnBootstrap;
@@ -42,7 +42,7 @@ public class CliNeuralTr
 	
 	public void test() throws UtilsProcessingException
 	{
-		Round round = restPersonal.round(353);
+		Round round = restPersonal.round(367);
 		
 		OfxVectorTable ofx = new OfxVectorTable(round);
 		
