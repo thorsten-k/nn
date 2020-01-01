@@ -1,12 +1,12 @@
 package de.kisner.nn.tr;
 
 import javax.naming.NamingException;
+import javax.ws.rs.client.ClientBuilder;
 
 import org.apache.commons.configuration.Configuration;
-import org.jboss.resteasy.client.jaxrs.BasicAuthentication;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
-import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
 import org.jeesl.model.json.system.io.ssi.SsiCrendentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,10 +32,11 @@ public class CliNeuralTr
 	
 	public CliNeuralTr(Configuration config)
 	{
-		ResteasyClient client = new ResteasyClientBuilder().build();
 		SsiCrendentials credentials = NnBootstrap.trCrendentials(config);
+		ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
 		client.register(new BasicAuthentication(credentials.getUser(),credentials.getPassword()));
 		ResteasyWebTarget restTarget = client.target(credentials.getUrl());
+
 		restStatistic = restTarget.proxy(HistoricalRest.class);
 		restPersonal = restTarget.proxy(PersonalRest.class);
 	}
