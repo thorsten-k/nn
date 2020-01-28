@@ -7,6 +7,7 @@ import org.apache.commons.configuration.Configuration;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
+import org.jeesl.exception.ejb.JeeslNotFoundException;
 import org.jeesl.model.json.system.io.ssi.SsiCrendentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,6 @@ import org.tipprunde.processor.statistic.MatchBalanceProcessor;
 import org.tipprunde.util.filter.xml.XmlMatchesFilter;
 
 import de.kisner.nn.NnBootstrap;
-import net.sf.ahtutils.exception.ejb.UtilsNotFoundException;
 import net.sf.ahtutils.exception.processing.UtilsProcessingException;
 
 public class CliNeuralTr
@@ -43,7 +43,7 @@ public class CliNeuralTr
 	
 	public void test() throws UtilsProcessingException
 	{
-		Round round = restPersonal.round(367);
+		Round round = restPersonal.round(369);
 		
 		OfxVectorTable ofx = new OfxVectorTable(round);
 		
@@ -98,7 +98,7 @@ public class CliNeuralTr
 		ofx.debug();
 	}
 	
-	public static void main(String[] args) throws UtilsNotFoundException, NamingException, UtilsProcessingException
+	public static void main(String[] args) throws JeeslNotFoundException, NamingException, UtilsProcessingException
 	{
 		Configuration config = NnBootstrap.init();
 		CliNeuralTr cli = new CliNeuralTr(config);
