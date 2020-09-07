@@ -8,11 +8,12 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
 import org.jeesl.exception.ejb.JeeslNotFoundException;
+import org.jeesl.exception.processing.UtilsProcessingException;
 import org.jeesl.model.json.system.io.ssi.SsiCrendentials;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tipprunde.api.rest.HistoricalRest;
-import org.tipprunde.api.rest.PersonalRest;
+import org.tipprunde.api.rest.provide.HistoricalRest;
+import org.tipprunde.api.rest.provide.PersonalRest;
 import org.tipprunde.factory.txt.liga.TxtRoundFactory;
 import org.tipprunde.model.xml.liga.Match;
 import org.tipprunde.model.xml.liga.Matches;
@@ -21,7 +22,6 @@ import org.tipprunde.processor.statistic.MatchBalanceProcessor;
 import org.tipprunde.util.filter.xml.XmlMatchesFilter;
 
 import de.kisner.nn.NnBootstrap;
-import net.sf.ahtutils.exception.processing.UtilsProcessingException;
 
 public class CliNeuralTr
 {
@@ -43,7 +43,7 @@ public class CliNeuralTr
 	
 	public void test() throws UtilsProcessingException
 	{
-		Round round = restPersonal.round(369);
+		Round round = restPersonal.round(384);
 		
 		OfxVectorTable ofx = new OfxVectorTable(round);
 		
