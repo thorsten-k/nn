@@ -9,11 +9,11 @@ import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
 import org.jeesl.exception.ejb.JeeslNotFoundException;
 import org.jeesl.exception.processing.UtilsProcessingException;
-import org.jeesl.model.json.system.io.ssi.SsiCrendentials;
+import org.jeesl.model.json.io.ssi.core.JsonSsiCredential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.tipprunde.api.rest.provide.HistoricalRest;
-import org.tipprunde.api.rest.provide.PersonalRest;
+import org.tipprunde.api.rest.provide.rs.LigaHistoricalRest;
+import org.tipprunde.api.rest.provide.rs.PersonalRest;
 import org.tipprunde.factory.txt.liga.TxtRoundFactory;
 import org.tipprunde.model.xml.liga.Match;
 import org.tipprunde.model.xml.liga.Matches;
@@ -27,17 +27,17 @@ public class CliNeuralTr
 {
 	final static Logger logger = LoggerFactory.getLogger(CliNeuralTr.class);
 
-	private HistoricalRest restStatistic;
+	private LigaHistoricalRest restStatistic;
 	private PersonalRest restPersonal;
 	
 	public CliNeuralTr(Configuration config)
 	{
-		SsiCrendentials credentials = NnBootstrap.trCrendentials(config);
+		JsonSsiCredential credentials = NnBootstrap.trCrendentials(config);
 		ResteasyClient client = (ResteasyClient)ClientBuilder.newClient();
 		client.register(new BasicAuthentication(credentials.getUser(),credentials.getPassword()));
 		ResteasyWebTarget restTarget = client.target(credentials.getUrl());
 
-		restStatistic = restTarget.proxy(HistoricalRest.class);
+		restStatistic = restTarget.proxy(LigaHistoricalRest.class);
 		restPersonal = restTarget.proxy(PersonalRest.class);
 	}
 	
