@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>     
 	
-	<groupId>de.kisner</groupId>
+	<groupId>de.kisner.tr.server</groupId>
 	<artifactId>tr-nn</artifactId>
 	<version>0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -49,23 +49,7 @@
 			<artifactId>resteasy-client</artifactId>
 			<version>4.4.2.Final</version>
 		</dependency>
-		<!-- Removed 2020-01-01 
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jaxrs</artifactId>
-			<version>3.0.1.Final</version>
-			<exclusions>
-            	<exclusion>
-            		<artifactId>commons-logging</artifactId>
-            		<groupId>commons-logging</groupId>
-            	</exclusion>
-            	<exclusion>
-            		<artifactId>slf4j-simple</artifactId>
-            		<groupId>org.slf4j</groupId>
-            	</exclusion>
-			</exclusions>
-		</dependency> -->
-
+		
 		<dependency>
 			<groupId>de.kisner.tr.server</groupId>
 			<artifactId>tr-util</artifactId>
