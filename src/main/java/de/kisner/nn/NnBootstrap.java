@@ -1,15 +1,18 @@
 package de.kisner.nn;
 
 import org.apache.commons.configuration.Configuration;
+import org.exlp.controller.handler.io.log.LoggerBootstrap;
+import org.exlp.controller.handler.system.property.ConfigLoader;
+import org.exlp.util.io.config.ExlpCentralConfigPointer;
+import org.exlp.util.io.log.LoggerInit;
+import org.exlp.util.jx.JaxbUtil;
 import org.jeesl.factory.txt.system.io.ssi.TxtSsiCredentialFactory;
 import org.jeesl.model.json.io.ssi.core.JsonSsiCredential;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.tipprunde.server.api.facade.TrFacade;
 
 import net.sf.exlp.exception.ExlpConfigurationException;
-import net.sf.exlp.util.config.ConfigLoader;
-import net.sf.exlp.util.io.ExlpCentralConfigPointer;
-import net.sf.exlp.util.io.LoggerInit;
 
 public class NnBootstrap
 {
@@ -23,11 +26,7 @@ public class NnBootstrap
 	
 	public static Configuration init(String configFile)
 	{
-		LoggerInit loggerInit = new LoggerInit("log4j.xml");
-		loggerInit.addAltPath("nn/config");
-		loggerInit.init();
-//			System.setProperty("javax.xml.bind.JAXBContext","com.sun.xml.internal.bind.v2.ContextFactory"); 
-//		JaxbUtil.setNsPrefixMapper(new TrNsPrefixMapper());	
+		LoggerBootstrap.instance().path("tr/system/io/log").init();
 			
 		Configuration config = 	initConfig(configFile);		
 		logger.debug("Config and Logger initialized");
@@ -38,13 +37,14 @@ public class NnBootstrap
 	{
 		try
 		{
-			ConfigLoader.add(ExlpCentralConfigPointer.getFile("nn","client").getAbsolutePath());
+			ExlpCentralConfigPointer ccp = ExlpCentralConfigPointer.instance(TrFacade.IoSsiSystemCode.tr).jaxb(JaxbUtil.instance());
+			ConfigLoader.addFile(ccp.toFile("client"));
 		}
 		catch (ExlpConfigurationException e)
 		{
 			logger.debug("No optional config found. "+e.getMessage());
 		}
-		ConfigLoader.add(configFile);
+		ConfigLoader.addString(configFile);
 		return ConfigLoader.init();
 	}
 	

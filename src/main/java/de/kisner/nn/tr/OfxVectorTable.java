@@ -6,6 +6,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exlp.util.jx.JaxbUtil;
 import org.openfuxml.content.table.Body;
 import org.openfuxml.content.table.Content;
 import org.openfuxml.content.table.Row;
@@ -20,8 +21,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tipprunde.model.xml.liga.Match;
 import org.tipprunde.model.xml.liga.Round;
-
-import net.sf.exlp.util.xml.JaxbUtil;
 
 public class OfxVectorTable
 {

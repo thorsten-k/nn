@@ -19,7 +19,25 @@
 		<maven>3.0</maven>
 	</prerequisites>
 
-	<dependencies>		
+	<dependencies>
+	
+		<dependency>
+			<groupId>de.kisner.tr.server</groupId>
+			<artifactId>tr-util</artifactId>
+			<version>0.3.0-SNAPSHOT</version>
+			<type>jar</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.jeesl</groupId>
+					<artifactId>jeesl-report</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.antlr</groupId>
+					<artifactId>antlr4-runtime</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	
 		<dependency>
 	 		<groupId>commons-configuration</groupId>
 			<artifactId>commons-configuration</artifactId>
@@ -39,34 +57,23 @@
 			<version>3.4</version>
 		</dependency>
 	
-		<dependency>
-			<groupId>org.jboss.resteasy</groupId>
-			<artifactId>resteasy-jaxb-provider</artifactId>
-			<version>4.4.2.Final</version>
-		</dependency>
+		<!-- Resteasy -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-client</artifactId>
-			<version>4.4.2.Final</version>
+			<version>5.0.9.Final</version>
 		</dependency>
-		
 		<dependency>
-			<groupId>de.kisner.tr.server</groupId>
-			<artifactId>tr-util</artifactId>
-			<version>0.3.0-SNAPSHOT</version>
-			<type>jar</type>
-			<exclusions>
-				<exclusion>
-					<groupId>org.jeesl</groupId>
-					<artifactId>jeesl-report</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.antlr</groupId>
-					<artifactId>antlr4-runtime</artifactId>
-				</exclusion>
-			</exclusions>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>5.0.9.Final</version>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson2-provider</artifactId>
+			<version>5.0.9.Final</version>
+		</dependency>
+				
 		<!-- OFX -->
 		<dependency>
 			<groupId>org.openfuxml</groupId>
@@ -134,7 +141,7 @@
 			<plugin>
 				<groupId>net.sf.exlp</groupId>
 				<artifactId>exlp-maven</artifactId>
-				<version>0.1.12-SNAPSHOT</version>
+				<version>0.1.18-SNAPSHOT</version>
 				<executions>
  					<execution>
 						<id>create-merged-maven-ignore</id>
@@ -197,7 +204,7 @@
 			<dependency>
 				<groupId>net.sf.exlp</groupId>
     			<artifactId>exlp-bom</artifactId>
-    			<version>0.1.12-SNAPSHOT</version>
+    			<version>0.1.18-SNAPSHOT</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
