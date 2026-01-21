@@ -2,15 +2,17 @@
 <ruleset xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" comparisonMethod="maven" xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
   <!--Do not modify this file, it is auto generated!-->
   <rules>
-    <rule groupId="commons-beanutils" comparisonMethod="maven">
-      <ignoreVersions>
-        <ignoreVersion>1.9.4.redhat-00001</ignoreVersion>
-      </ignoreVersions>
-    </rule>
     <rule groupId="commons-cli" comparisonMethod="maven">
       <ignoreVersions>
         <ignoreVersion>20040117.000000</ignoreVersion>
         <ignoreVersion>2.0-gt2-pre1</ignoreVersion>
+        <ignoreVersion>1.5.0.redhat-00001</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="commons-codec" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>1.15.0.redhat-00001</ignoreVersion>
+        <ignoreVersion>1.16.0.redhat-00001</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="commons-collections" comparisonMethod="maven">
@@ -22,19 +24,31 @@
         <ignoreVersion>3.2.2.redhat-2</ignoreVersion>
       </ignoreVersions>
     </rule>
+    <rule groupId="commons-fileupload" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>1.5.0.redhat-00001</ignoreVersion>
+      </ignoreVersions>
+    </rule>
     <rule groupId="commons-configuration" comparisonMethod="maven">
       <ignoreVersions>
         <ignoreVersion>1.10.0.redhat-1</ignoreVersion>
+        <ignoreVersion>1.10.0.redhat-00002</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="commons-io" comparisonMethod="maven">
       <ignoreVersions>
         <ignoreVersion>2.6.0.redhat-00001</ignoreVersion>
+        <ignoreVersion>2.11.0.redhat-00001</ignoreVersion>
       </ignoreVersions>
     </rule>
-    <rule groupId="commons-jxpath" comparisonMethod="maven">
+    <rule groupId="commons-httpclient" comparisonMethod="maven">
       <ignoreVersions>
-        <ignoreVersion>1.3-redhat-3</ignoreVersion>
+        <ignoreVersion>3.1-jbossorg-1</ignoreVersion>
+        <ignoreVersion>3.1-redhat-1</ignoreVersion>
+        <ignoreVersion>3.1-redhat-2</ignoreVersion>
+        <ignoreVersion>3.1-redhat-3</ignoreVersion>
+        <ignoreVersion>3.1.0.redhat-7</ignoreVersion>
+        <ignoreVersion>3.1.0.redhat-8</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="commons-lang" comparisonMethod="maven">
@@ -47,6 +61,55 @@
         <ignoreVersion>2.6.0.redhat-5</ignoreVersion>
         <ignoreVersion>2.6.0.redhat-6</ignoreVersion>
         <ignoreVersion>2.6.0.redhat-7</ignoreVersion>
+        <ignoreVersion>2.6.0.redhat-00008</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="commons-validator" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>1.7.0.redhat-00001</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.commons" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>3.12.0.redhat-00001</ignoreVersion>
+        <ignoreVersion>4.4.0.redhat-00002</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.httpcomponents" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>4.5.13.redhat-00001</ignoreVersion>
+        <ignoreVersion>4.5.13.redhat-00002</ignoreVersion>
+        <ignoreVersion>4.5.14.redhat-00002</ignoreVersion>
+        <ignoreVersion>4.5.14.redhat-00006</ignoreVersion>
+        <ignoreVersion>4.5.14.redhat-00007</ignoreVersion>
+        <ignoreVersion>4.5.14.redhat-00009</ignoreVersion>
+        <ignoreVersion>4.5.14.redhat-00010</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.logging.log4j" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>3.0.0-alpha1</ignoreVersion>
+        <ignoreVersion>3.0.0-beta1</ignoreVersion>
+        <ignoreVersion>3.0.0-beta2</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.maven" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>4.0.0-alpha-2</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-3</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-4</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-5</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-7</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-8</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-9</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-10</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-12</ignoreVersion>
+        <ignoreVersion>4.0.0-alpha-13</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="commons-jxpath" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>1.3-redhat-3</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="javax.xml.bind" comparisonMethod="maven">
@@ -54,6 +117,7 @@
         <ignoreVersion>2.2.11.jbossorg-1</ignoreVersion>
         <ignoreVersion>2.3.1.redhat-00001</ignoreVersion>
         <ignoreVersion>2.3.3-b02</ignoreVersion>
+        <ignoreVersion>2.3.1.redhat-00002</ignoreVersion>
         <ignoreVersion>2.4.0-b180725.0427</ignoreVersion>
         <ignoreVersion>2.4.0-b180830.0359</ignoreVersion>
       </ignoreVersions>
@@ -73,8 +137,23 @@
     </rule>
     <rule groupId="org.codehaus.jackson" comparisonMethod="maven">
       <ignoreVersions>
+        <ignoreVersion>1.9.13.jdk17-redhat-00001</ignoreVersion>
+        <ignoreVersion>1.9.13.redhat-2</ignoreVersion>
+        <ignoreVersion>1.9.13.redhat-3</ignoreVersion>
         <ignoreVersion>1.9.13.redhat-4</ignoreVersion>
         <ignoreVersion>1.9.13.redhat-00006</ignoreVersion>
+        <ignoreVersion>1.9.14.jdk17-redhat-00001</ignoreVersion>
+        <ignoreVersion>2.15.2.redhat-00001</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="com.fasterxml.jackson.core" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>2.15.2.redhat-00001</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="com.fasterxml.jackson.datatype" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>2.15.2.redhat-00001</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="org.glassfish.jaxb" comparisonMethod="maven">
@@ -91,6 +170,14 @@
         <ignoreVersion>6.0.0.Alpha2</ignoreVersion>
         <ignoreVersion>6.0.0.Alpha3</ignoreVersion>
         <ignoreVersion>6.0.0.Alpha4</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.hibernate.javax.persistence" comparisonMethod="maven">
+      <ignoreVersions>
+        <ignoreVersion>1.0.1.Final-redhat-1</ignoreVersion>
+        <ignoreVersion>1.0.1.Final-redhat-2</ignoreVersion>
+        <ignoreVersion>1.0.1.Final-redhat-3</ignoreVersion>
+        <ignoreVersion>1.0.2.Final-redhat-1</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="org.jboss.resteasy" comparisonMethod="maven">
@@ -117,6 +204,10 @@
         <ignoreVersion>1.2.17.redhat-1</ignoreVersion>
         <ignoreVersion>1.2.17.redhat-2</ignoreVersion>
         <ignoreVersion>1.2.17.redhat-3</ignoreVersion>
+        <ignoreVersion>1.2.17.redhat-00007</ignoreVersion>
+        <ignoreVersion>1.2.17.redhat-00008</ignoreVersion>
+        <ignoreVersion>1.2.17.norce</ignoreVersion>
+        <ignoreVersion>1.2.17.redhat-00010</ignoreVersion>
       </ignoreVersions>
     </rule>
     <rule groupId="org.slf4j" comparisonMethod="maven">
@@ -130,6 +221,14 @@
         <ignoreVersion>1.8.0-beta4</ignoreVersion>
         <ignoreVersion>2.0.0-alpha0</ignoreVersion>
         <ignoreVersion>2.0.0-alpha1</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha2</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha3</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha4</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha5</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha6</ignoreVersion>
+        <ignoreVersion>2.0.0-alpha7</ignoreVersion>
+        <ignoreVersion>2.1.0-alpha0</ignoreVersion>
+        <ignoreVersion>2.1.0-alpha1</ignoreVersion>
       </ignoreVersions>
     </rule>
   </rules>
