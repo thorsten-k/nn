@@ -3,7 +3,7 @@ package de.kisner.nn.tr;
 import javax.naming.NamingException;
 import javax.ws.rs.client.ClientBuilder;
 
-import org.apache.commons.configuration.Configuration;
+import org.exlp.interfaces.system.property.Configuration;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.jboss.resteasy.client.jaxrs.internal.BasicAuthentication;
@@ -100,7 +100,7 @@ public class CliNeuralTr
 	
 	public static void main(String[] args) throws JeeslNotFoundException, NamingException, UtilsProcessingException
 	{
-		Configuration config = NnBootstrap.init();
+		Configuration config = NnBootstrap.wrap();
 		CliNeuralTr cli = new CliNeuralTr(config);
 		cli.test();
 	}

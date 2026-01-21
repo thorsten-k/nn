@@ -9,8 +9,11 @@ import org.encog.ml.genetic.MLMethodGeneticAlgorithm;
 import org.encog.ml.train.MLTrain;
 import org.encog.neural.networks.BasicNetwork;
 import org.encog.neural.pattern.FeedForwardPattern;
+import org.exlp.interfaces.system.property.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import de.kisner.nn.NnBootstrap;
 
 /**
  * A lunar lander game where the neural network learns to land a space craft.  
@@ -71,6 +74,9 @@ public class CliLunarLander
 	
 	public static void main(String args[])
 	{
+		Configuration config = NnBootstrap.wrap();
+		logger.info("Starting");
+		
 		for(int i=0;i<1;i++)
 		{
 			CliLunarLander ll = new CliLunarLander();
